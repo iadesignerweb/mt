@@ -5,73 +5,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plinio Studio Musicoterapia</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Ícones - Usaremos Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo">Plinio Studio</div>
+            <div class="logo">
+                <i class="fas fa-headphones-alt"></i> Plinio Fabrício
+            </div>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#youtube">YouTube</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#ciencia">Ciência</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="hero-slider">
-            <div class="slide active">
-                <h1>Bem-vindo ao Plinio Studio</h1>
-                <p>Descubra o poder transformador da Musicoterapia.</p>
-                <button onclick="location.href='#sobre'">Saiba Mais</button>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Bem-vindo ao <span class="highlight">Studio Musicoterapia</span></h1>
+                <p>Uma abordagem terapêutica que utiliza música, som e frequências binaurais para promover saúde mental, bem-estar e qualidade de vida.</p>
+                <div class="hero-buttons">
+                    <button class="btn primary" onclick="location.href='#contato'">Agende sua Consulta</button>
+                    <button class="btn secondary" onclick="location.href='#sobre'">Saiba Mais</button>
+                </div>
             </div>
-            <div class="slide">
-                <h1>Harmonia para sua Vida</h1>
-                <p>Música, som e bem-estar em um só lugar.</p>
-                <button onclick="location.href='#youtube'">Nosso Canal</button>
+            <!-- Imagem de fundo será definida no CSS -->
+        </section>
+
+        <section id="sobre" class="section-content about-section">
+            <div class="about-text">
+                <h2>Sobre o Canal Plínio Fabrício</h2>
+                <p>Bem-vindo ao Canal Plínio Fabrício de Musicoterapia, onde a ciência encontra a arte para promover cura e bem-estar. Nossa abordagem terapêutica utiliza música, som e seus elementos para atender necessidades físicas, emocionais, mentais e sociais.</p>
+                <p>Promovemos comunicação, expressão, aprendizado e reabilitação de funções, sendo especialmente eficaz no tratamento de ansiedade, estresse, autismo, Alzheimer e como ferramenta de prevenção e promoção da qualidade de vida.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Frequências Calibradas</li>
+                    <li><i class="fas fa-check-circle"></i> Base Científica</li>
+                    <li><i class="fas fa-check-circle"></i> Resultados Comprovados</li>
+                </ul>
             </div>
-            <div class="slide">
-                <h1>Conecte-se com a Musicoterapia</h1>
-                <p>Sua jornada de autocuidado começa aqui.</p>
-                <button onclick="location.href='#contato'">Fale Conosco</button>
-            </div>
-            <div class="slider-nav">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
+            <div class="about-image">
+                <!-- Imagem do Plinio com o violão -->
+                <img src="https://via.placeholder.com/400x400/0A192F/E0E0E0?text=Plinio+Fabrício" alt="Plinio Fabricio Musicoterapia">
+                <div class="experience-badge">
+                    <i class="fas fa-user-tie"></i>
+                    <p>15+ Anos<br>de experiência</p>
+                </div>
             </div>
         </section>
 
-        <section id="sobre" class="section-content">
-            <h2>O Que é Musicoterapia?</h2>
-            <p><strong>STUDIO MUSICOTERAPIA</strong> é uma abordagem terapêutica que utiliza música, som e seus elementos para atender necessidades físicas, emocionais, mentais e sociais de indivíduos. Ela promove comunicação, expressão, aprendizado e a reabilitação de funções, sendo utilizada no tratamento de diversas condições como ansiedade, estresse, autismo e Alzheimer, e também como ferramenta de prevenção e promoção de bem-estar e qualidade de vida. A Musicoterapia é uma abordagem terapêutica que utiliza música, som e seus elementos para atender necessidades físicas, emocionais, mentais e sociais de indivíduos. Ela promove comunicação, expressão, aprendizado e a reabilitação de funções, sendo utilizada no tratamento de diversas condições como ansiedade, estresse, autismo e Alzheimer, e também como ferramenta de prevenção e promoção de bem-estar e qualidade de vida.</p>
-            <p>Através de diversas técnicas, como improvisação musical, escuta receptiva, composição e movimento com música, a musicoterapia adapta-se às necessidades de cada pessoa, buscando restaurar, manter ou melhorar a saúde e o bem-estar.</p>
-        </section>
-
-        <section id="youtube" class="section-content youtube-section">
-            <h2>Nosso Canal no YouTube</h2>
-            <p>Explore nosso conteúdo exclusivo e aprofunde-se no universo da Musicoterapia. Nosso canal oferece vídeos educativos, sessões guiadas e insights sobre como a música pode transformar vidas.</p>
-            <div class="youtube-embed-container">
-                <iframe src="https://www.youtube.com/embed/videoseries?list=UU7d9y7K9R2Z0q2X8X8X8X8A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <p class="youtube-description">Visite nosso canal para mais informações e para se conectar com a comunidade Plinio Studio. Inscreva-se e ative o sininho para não perder nenhum conteúdo!</p>
-                <a href="https://youtube.com/@pliniofabricio_" target="_blank" class="btn-youtube">Acessar Canal</a>
+        <section id="servicos" class="section-content services-section">
+            <h2>Nossos Serviços Especializados</h2>
+            <p class="section-subtitle">Oferecemos uma gama completa de tratamentos musicoterapêuticos baseados em ciência e frequências específicas para promover sua saúde e bem-estar</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-user icon-large"></i>
+                    <h3>Musicoterapia Individual</h3>
+                    <p>Sessões personalizadas com frequências específicas para suas necessidades únicas.</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Avaliação personalizada</li>
+                        <li><i class="fas fa-check-circle"></i> Frequências calibradas</li>
+                        <li><i class="fas fa-check-circle"></i> Acompanhamento contínuo</li>
+                    </ul>
+                    <button class="btn card-btn">Saiba mais</button>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users icon-large"></i>
+                    <h3>Terapia em Grupo</h3>
+                    <p>Sessões coletivas que promovem interação social e cura compartilhada.</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Dinâmicas de grupo</li>
+                        <li><i class="fas fa-check-circle"></i> Socialização terapêutica</li>
+                        <li><i class="fas fa-check-circle"></i> Apoio mútuo</li>
+                    </ul>
+                    <button class="btn card-btn">Saiba mais</button>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-brain icon-large"></i>
+                    <h3>Frequências Binaurais</h3>
+                    <p>Tecnologia avançada de áudio estéreo para estimulação cerebral específica.</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check-circle"></i> Áudio de alta qualidade</li>
+                        <li><i class="fas fa-check-circle"></i> Estimulação natural</li>
+                        <li><i class="fas fa-check-circle"></i> Estados alterados de consciência</li>
+                    </ul>
+                    <button class="btn card-btn">Saiba mais</button>
+                </div>
+            </div>
+            <div class="conditions-grid">
+                <div class="condition-card"><i class="fas fa-sad-tear"></i> Tratamento de Ansiedade</div>
+                <div class="condition-card"><i class="fas fa-frown"></i> Combate à Depressão</div>
+                <div class="condition-card"><i class="fas fa-redo"></i> Reabilitação</div>
+            </div>
+            <div class="cta-box">
+                <h3>Pronto para começar sua jornada de cura?</h3>
+                <p>Agende uma consulta e descubra como a musicoterapia pode transformar sua vida</p>
+                <button class="btn primary">Agendar consulta</button>
             </div>
         </section>
 
-        <section id="contato" class="section-content">
-            <h2>Fale Conosco</h2>
-            <p>Se tiver dúvidas ou quiser saber mais sobre nossos serviços, entre em contato:</p>
-            <div class="contact-links">
-                <a href="https://iadesignerweb.github.io/pliniostudio.io" target="_blank" class="btn-support">Nosso Site de Suporte</a>
-                <a href="https://wa.me/5587996029765" target="_blank" class="btn-whatsapp">WhatsApp</a>
+        <section id="ciencia" class="section-content science-section">
+            <h2>Ciência e Emoção Caminhando Juntas</h2>
+            <p class="section-subtitle">A ciência já comprovou que a música vai muito além do entretenimento: ela é capaz de atuar diretamente no cérebro, estimulando a produção de hormônios ligados ao bem-estar, relaxamento e controle da dor.</p>
+            
+            <div class="science-grid">
+                <div class="how-brain-responds">
+                    <h3>Como o Cérebro Responde às Frequências</h3>
+                    <p>O cérebro humano responde de maneira única às frequências sonoras. Quando estimuladas de forma correta, determinadas ondas podem transformar completamente nosso estado mental e emocional.</p>
+                    <ul class="brain-features">
+                        <li><i class="fas fa-wave-square"></i> Ativação de Neurotransmissores</li>
+                        <li><i class="fas fa-compress-alt"></i> Redução do Cortisol</li>
+                        <li><i class="fas fa-spa"></i> Estados Meditativos</li>
+                        <li><i class="fas fa-headphones"></i> Áudio Estéreo Especializado</li>
+                    </ul>
+                </div>
+                <div class="brain-image">
+                    <img src="https://via.placeholder.com/500x400/0A192F/00FFFF?text=Cérebro+e+Frequências" alt="Imagem do Cérebro com Frequências Sonoras">
+                </div>
+            </div>
+
+            <div class="tech-advanced">
+                <div class="tech-image">
+                    <img src="https://via.placeholder.com/400x300/0A192F/9C27B0?text=Tecnologia+Musicoterapia" alt="Tecnologia Musicoterapia">
+                </div>
+                <div class="tech-text">
+                    <h3>Tecnologia Avançada em Musicoterapia</h3>
+                    <p>O uso de áudio em estéreo (L-R - ouvido esquerdo e direito), aplicado por meio de fones de alta qualidade, potencializa os efeitos terapêuticos. Técnicos especializados em áudio espectros e frequências binaurais desenvolvem sons capazes de induzir o cérebro a estados específicos.</p>
+                    <ul class="tech-benefits">
+                        <li><i class="fas fa-check-circle"></i> Estados de foco e concentração</li>
+                        <li><i class="fas fa-check-circle"></i> Relaxamento profundo e meditativo</li>
+                        <li><i class="fas fa-check-circle"></i> Equilíbrio emocional e bem-estar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="conditions-treated-title">Condições Tratadas com Eficácia Comprovada</h3>
+            <div class="treated-conditions-grid">
+                <div class="treated-card"><i class="fas fa-umbrella-beach"></i> Ansiedade</div>
+                <div class="treated-card"><i class="fas fa-cloud-sun"></i> Depressão</div>
+                <div class="treated-card"><i class="fas fa-burn"></i> Estresse Crônico</div>
+                <div class="treated-card"><i class="fas fa-moon"></i> Transtornos do Sono</div>
+                <div class="treated-card"><i class="fas fa-puzzle-piece"></i> Autismo</div>
+                <div class="treated-card"><i class="fas fa-memory"></i> Alzheimer</div>
+                <div class="treated-card"><i class="fas fa-joint"></i> Dor Crônica</div>
+                <div class="treated-card"><i class="fas fa-lightbulb"></i> TDAH</div>
             </div>
         </section>
+
+        <section id="contato" class="section-content contact-section">
+            <div class="cta-box">
+                <h3>Entre em Contato</h3>
+                <p>Pronto para começar sua jornada de cura e bem-estar? Entre em contato conosco e descubra como a musicoterapia pode transformar sua vida</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <p><i class="fas fa-phone-alt"></i> Telefone: (11) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> E-mail: contato@pliniofabricio.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Localização: São Paulo, SP</p>
+                    <p>Atendimento presencial e online</p>
+
+                    <h4>Horários de Atendimento</h4>
+                    <ul>
+                        <li>Segunda a Quinta: 8h às 18h</li>
+                        <li>Sexta: 8h às 16h</li>
+                        <li>Sábado: 9h às 13h</li>
+                        <li>Domingo: Fechado</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3>Solicite uma Consulta</h3>
+                    <form>
+                        <input type="text" placeholder="Seu nome completo" required>
+                        <input type="email" placeholder="seu@email.com" required>
+                        <input type="tel" placeholder="(11) 99999-9999" required>
+                        <select>
+                            <option value="">Selecione um serviço</option>
+                            <option value="individual">Musicoterapia Individual</option>
+                            <option value="grupo">Terapia em Grupo</option>
+                            <option value="binaurais">Frequências Binaurais</option>
+                        </select>
+                        <textarea placeholder="Comente aqui suas necessidades e objetivos..."></textarea>
+                        <button type="submit" class="btn primary">Enviar mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter" class="section-content newsletter-section">
+            <h3>Receba Conteúdos Exclusivos</h3>
+            <p>Inscreva-se em nossa newsletter e receba dicas, artigos científicos e novidades sobre musicoterapia diretamente em seu e-mail</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Seu melhor e-mail">
+                <button class="btn primary">Inscrever-se</button>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; Copyright 2025 - Plinio Studio</p>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="logo-footer"><i class="fas fa-headphones-alt"></i> Plinio Fabrício</div>
+                <p>Transformando vidas através da musicoterapia científica. Utilizam as frequências específicas para promover bem-estar, reduzir a ansiedade e melhorar a qualidade de vida.</p>
+                <div class="social-icons">
+                    <a href="https://youtube.com/@pliniofabricio_" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <!-- Adicione links para outras redes sociais se tiver -->
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Serviços</h3>
+                <ul>
+                    <li><a href="#servicos">Musicoterapia Individual</a></li>
+                    <li><a href="#servicos">Terapia em Grupo</a></li>
+                    <li><a href="#servicos">Frequências Binaurais</a></li>
+                    <li><a href="#servicos">Tratamento de Ansiedade</a></li>
+                    <li><a href="#servicos">Reabilitação</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contato</h3>
+                <p><i class="fas fa-phone-alt"></i> (11) 99999-9999</p>
+                <p><i class="fas fa-envelope"></i> contato@pliniofabricio.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Canal Plínio Fabrício. Todos os direitos reservados.</p>
+            <a href="https://wa.me/5587996029765" target="_blank" class="talk-with-us">
+                <i class="fab fa-whatsapp"></i> Talk with Us
+            </a>
+        </div>
     </footer>
 
     <script src="script.js"></script>

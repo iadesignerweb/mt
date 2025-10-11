@@ -3,157 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor MP4 para MP3</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #333;
-            text-align: center;
-            margin: 20px;
-        }
-        #banner {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-        }
-        h1 {
-            color: #000;
-        }
-        input, button, a {
-            margin: 10px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button {
-            background: linear-gradient(90deg, #6a0dad, #ffcc00);
-            color: #fff;
-        }
-        button:disabled {
-            background: #bbb;
-            cursor: not-allowed;
-        }
-        a {
-            display: none;
-            text-decoration: none;
-            background: linear-gradient(90deg, #6a0dad, #ffcc00);
-            color: #fff;
-            padding: 10px 20px;
-        }
-        a:hover {
-            opacity: 0.8;
-        }
-        #status {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #6a0dad;
-            display: none;
-        }
-        progress {
-            width: 80%;
-            height: 10px;
-            display: none;
-        }
-        footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
+    <title>Plinio Studio Musicoterapia</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Banner -->
-    <img id="banner" src="https://raw.githubusercontent.com/iadesignerweb/Pixall-IA/refs/heads/main/Site%20de%20newsletter%20para%20Pl%C3%ADnio%20Fabr%C3%ADcio%2C%20Designer%2C%20Site1.png" alt="Banner">
+    <header>
+        <nav>
+            <div class="logo">Plinio Studio</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#youtube">YouTube</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1>Conversor MP4 para MP3</h1>
-    <!-- Input para selecionar o arquivo de vídeo -->
-    <input type="file" id="videoFile" accept="video/mp4" onchange="handleFileSelect(event)">
-    <button id="convertBtn">Converter para MP3</button>
-    <p id="status">Aguarde, convertendo...</p>
-    <progress id="progressBar" value="0" max="100"></progress>
-    <a id="downloadLink" download="audio.mp3">Baixar MP3</a>
+    <main>
+        <section id="home" class="hero-slider">
+            <div class="slide active">
+                <h1>Bem-vindo ao Plinio Studio</h1>
+                <p>Descubra o poder transformador da Musicoterapia.</p>
+                <button onclick="location.href='#sobre'">Saiba Mais</button>
+            </div>
+            <div class="slide">
+                <h1>Harmonia para sua Vida</h1>
+                <p>Música, som e bem-estar em um só lugar.</p>
+                <button onclick="location.href='#youtube'">Nosso Canal</button>
+            </div>
+            <div class="slide">
+                <h1>Conecte-se com a Musicoterapia</h1>
+                <p>Sua jornada de autocuidado começa aqui.</p>
+                <button onclick="location.href='#contato'">Fale Conosco</button>
+            </div>
+            <div class="slider-nav">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </section>
 
-    <footer>@Copyright 2025 • Plínio Fabrício</footer>
+        <section id="sobre" class="section-content">
+            <h2>O Que é Musicoterapia?</h2>
+            <p><strong>STUDIO MUSICOTERAPIA</strong> é uma abordagem terapêutica que utiliza música, som e seus elementos para atender necessidades físicas, emocionais, mentais e sociais de indivíduos. Ela promove comunicação, expressão, aprendizado e a reabilitação de funções, sendo utilizada no tratamento de diversas condições como ansiedade, estresse, autismo e Alzheimer, e também como ferramenta de prevenção e promoção de bem-estar e qualidade de vida. A Musicoterapia é uma abordagem terapêutica que utiliza música, som e seus elementos para atender necessidades físicas, emocionais, mentais e sociais de indivíduos. Ela promove comunicação, expressão, aprendizado e a reabilitação de funções, sendo utilizada no tratamento de diversas condições como ansiedade, estresse, autismo e Alzheimer, e também como ferramenta de prevenção e promoção de bem-estar e qualidade de vida.</p>
+            <p>Através de diversas técnicas, como improvisação musical, escuta receptiva, composição e movimento com música, a musicoterapia adapta-se às necessidades de cada pessoa, buscando restaurar, manter ou melhorar a saúde e o bem-estar.</p>
+        </section>
 
-    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.11.0/dist/ffmpeg.min.js"></script>
-    <script>
-        let videoFile = null;
+        <section id="youtube" class="section-content youtube-section">
+            <h2>Nosso Canal no YouTube</h2>
+            <p>Explore nosso conteúdo exclusivo e aprofunde-se no universo da Musicoterapia. Nosso canal oferece vídeos educativos, sessões guiadas e insights sobre como a música pode transformar vidas.</p>
+            <div class="youtube-embed-container">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=UU7d9y7K9R2Z0q2X8X8X8X8A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="youtube-description">Visite nosso canal para mais informações e para se conectar com a comunidade Plinio Studio. Inscreva-se e ative o sininho para não perder nenhum conteúdo!</p>
+                <a href="https://youtube.com/@pliniofabricio_" target="_blank" class="btn-youtube">Acessar Canal</a>
+            </div>
+        </section>
 
-        // Função para tratar a seleção do arquivo
-        function handleFileSelect(event) {
-            videoFile = event.target.files[0];
-            if (!videoFile || !videoFile.type.includes('mp4')) {
-                alert('Por favor, selecione um arquivo MP4 válido.');
-                return;
-            }
-        }
+        <section id="contato" class="section-content">
+            <h2>Fale Conosco</h2>
+            <p>Se tiver dúvidas ou quiser saber mais sobre nossos serviços, entre em contato:</p>
+            <div class="contact-links">
+                <a href="https://iadesignerweb.github.io/pliniostudio.io" target="_blank" class="btn-support">Nosso Site de Suporte</a>
+                <a href="https://wa.me/5587996029765" target="_blank" class="btn-whatsapp">WhatsApp</a>
+            </div>
+        </section>
+    </main>
 
-        document.getElementById('convertBtn').addEventListener('click', async () => {
-            if (!videoFile || !videoFile.type.includes('mp4')) {
-                alert('Por favor, selecione um arquivo MP4 válido.');
-                return;
-            }
+    <footer>
+        <p>&copy; Copyright 2025 - Plinio Studio</p>
+    </footer>
 
-            const convertBtn = document.getElementById('convertBtn');
-            const statusMsg = document.getElementById('status');
-            const progressBar = document.getElementById('progressBar');
-            const downloadLink = document.getElementById('downloadLink');
-
-            convertBtn.disabled = true;
-            statusMsg.style.display = 'block';
-            progressBar.style.display = 'block';
-            progressBar.value = 10;
-
-            const { createFFmpeg, fetchFile } = FFmpeg;
-            const ffmpeg = createFFmpeg({ log: true });
-
-            try {
-                // Verifica se o FFmpeg foi carregado corretamente
-                console.log("Carregando FFmpeg...");
-                await ffmpeg.load();
-                console.log("FFmpeg carregado com sucesso!");
-                progressBar.value = 30;
-
-                ffmpeg.FS('writeFile', 'input.mp4', await fetchFile(videoFile));
-                progressBar.value = 50;
-
-                // Conversão otimizada para extrair áudio sem cortes
-                console.log("Iniciando a conversão...");
-                await ffmpeg.run('-i', 'input.mp4', '-vn', '-acodec', 'libmp3lame', '-b:a', '192k', 'output.mp3');
-                progressBar.value = 80;
-
-                const data = ffmpeg.FS('readFile', 'output.mp3');
-                const mp3Blob = new Blob([data.buffer], { type: 'audio/mp3' });
-
-                downloadLink.href = URL.createObjectURL(mp3Blob);
-                downloadLink.style.display = 'inline-block';
-
-                progressBar.value = 100;
-                setTimeout(() => {
-                    progressBar.style.display = 'none';
-                    statusMsg.style.display = 'none';
-                    convertBtn.disabled = false;
-                }, 500);
-
-                // Download automático no celular
-                if (navigator.userAgent.toLowerCase().includes("mobile")) {
-                    setTimeout(() => {
-                        downloadLink.click();
-                    }, 1000);
-                }
-            } catch (error) {
-                console.error('Erro na conversão:', error);
-                alert('Ocorreu um erro durante a conversão. Por favor, tente novamente.');
-                convertBtn.disabled = false;
-                statusMsg.style.display = 'none';
-                progressBar.style.display = 'none';
-            }
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>

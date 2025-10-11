@@ -1,228 +1,92 @@
-flex-wrap: wrap;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
+// Adicione um ouvinte de evento para o DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling para links de navegação
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-/* Talk with Us (WhatsApp) button */
-.talk-with-us {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366; /* Verde WhatsApp */
-    color: var(--white);
-    padding: 15px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    z-index: 1001;
-}
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
-.talk-with-us:hover {
-    background-color: #1EBE55;
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.4);
-}
+            if (targetElement) {
+                const headerOffset = document.querySelector('header').offsetHeight; // Altura do cabeçalho fixo
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerOffset - 20; // -20px para um pequeno padding extra
 
-.talk-with-us i {
-    font-size: 1.5rem;
-}
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-/* Responsividade */
-@media (max-width: 992px) {
-    nav ul {
-        display: none; /* Esconde o menu em telas menores, você pode implementar um menu hamburger aqui */
-    }
-    .logo {
-        width: 100%;
-        text-align: center;
-    }
-    header {
-        height: auto;
-        padding: 15px 0;
-    }
-    main {
-        padding-top: var(--header-height); /* Ajuste de padding para o header */
-    }
+    // Animação/Fade-in para seções quando elas entram na viewport
+    const sections = document.querySelectorAll('.section-content');
+    
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // 10% da seção visível para disparar
+    };
 
-    .hero-section h1 {
-        font-size: 3rem;
-    }
-    .hero-section p {
-        font-size: 1.2rem;
-    }
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+                observer.unobserve(entry.target); // Para que a animação ocorra apenas uma vez
+            }
+        });
+    }, observerOptions);
 
-    .about-section {
-        flex-direction: column;
-        padding: 40px 20px;
-    }
-    .about-text, .about-image {
-        padding-right: 0;
-        min-width: unset;
-        width: 100%;
-    }
-    .about-image img {
-        margin-bottom: 40px; /* Espaço para o badge */
-    }
-    .experience-badge {
-        bottom: 10px; /* Ajusta a posição em telas menores */
-    }
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
 
-    .services-grid, .conditions-grid, .science-grid, .tech-advanced, .treated-conditions-grid, .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 30px;
-    }
-    .section-content {
-        padding: 30px 20px;
-        margin: 4rem auto;
-    }
-    .cta-box {
-        padding: 30px 20px;
-    }
-    .cta-box h3 {
-        font-size: 1.8rem;
+    // Adicione um estilo inicial para as seções para a animação
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .section-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section-content.fade-in-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    `;
+    document.head.appendChild(style);
+
+
+    // Exemplo de validação de formulário de contato simples (apenas para demonstração)
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            const service = this.querySelector('select').value;
+            const message = this.querySelector('textarea').value;
+
+            if (name && email && phone && service && message) {
+                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                this.reset(); // Limpa o formulário
+            } else {
+                alert('Por favor, preencha todos os campos do formulário.');
+            }
+        });
     }
 
-    .how-brain-responds, .brain-image, .tech-image, .tech-text, .contact-info, .contact-form {
-        min-width: unset;
-        width: 100%;
+    // Adicione a funcionalidade para o botão "Talk with Us" (WhatsApp)
+    const whatsappButton = document.querySelector('.talk-with-us');
+    if (whatsappButton) {
+        whatsappButton.addEventListener('click', function(e) {
+            // Ação já é definida no HTML (href="https://wa.me/...")
+            // Mas se quisesse fazer algo JS-dinâmico, faria aqui
+            console.log("Abrindo WhatsApp...");
+        });
     }
-    .brain-image, .tech-image {
-        order: -1; /* Coloca a imagem acima do texto em telas menores */
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-        align-items: center;
-    }
-    .newsletter-form input, .newsletter-form .btn {
-        width: 80%;
-        max-width: 350px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-    .footer-links h3::after, .footer-contact h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .talk-with-us {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 18px;
-        font-size: 0.9rem;
-    }
-    .talk-with-us i {
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-    .hero-section p {
-        font-size: 1rem;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .btn {
-        width: 80%;
-        max-width: 280px;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-    .section-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .service-card .icon-large {
-        font-size: 3rem;
-        padding: 15px;
-    }
-    .service-card h3 {
-        font-size: 1.5rem;
-    }
-    .service-card p {
-        font-size: 0.9rem;
-    }
-
-    .conditions-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    }
-    .condition-card {
-        font-size: 0.9rem;
-        padding: 15px 10px;
-    }
-    .condition-card i {
-        font-size: 1.5rem;
-    }
-
-    .cta-box h3 {
-        font-size: 1.5rem;
-    }
-    .cta-box p {
-        font-size: 1rem;
-    }
-
-    .how-brain-responds h3, .tech-text h3 {
-        font-size: 1.6rem;
-    }
-    .brain-features li, .tech-benefits li {
-        font-size: 0.95rem;
-    }
-
-    .treated-conditions-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-    .treated-card {
-        font-size: 0.85rem;
-        padding: 12px 8px;
-    }
-    .treated-card i {
-        font-size: 1.3rem;
-    }
-
-    .contact-info h3, .contact-form h3 {
-        font-size: 1.6rem;
-    }
-    .contact-info p, .contact-info ul li {
-        font-size: 0.95rem;
-    }
-    .contact-form input, .contact-form select, .contact-form textarea {
-        padding: 12px;
-        font-size: 0.95rem;
-    }
-
-    .newsletter-section h3 {
-        font-size: 1.8rem;
-    }
-    .newsletter-section p {
-        font-size: 1rem;
-    }
-
-    .footer-about .logo-footer, .footer-links h3, .footer-contact h3 {
-        font-size: 1.3rem;
-    }
-    .footer-about p, .footer-links ul li, .footer-contact p {
-        font-size: 0.85rem;
-    }
-}
+});

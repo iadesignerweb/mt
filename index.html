@@ -82,45 +82,57 @@
             box-shadow: 0 4px 12px rgba(239, 131, 84, 0.3);
         }
 
-        /* Hero */
+        /* Hero - Seção principal com imagem de fundo */
         .hero {
-            /* Imagem de fundo da musicoterapia */
+            /* ESTA É A ALTERAÇÃO CHAVE: Usamos o link da sua imagem como plano de fundo. */
             background-image: url('https://raw.githubusercontent.com/iadesignerweb/musicoterapia/refs/heads/main/Musicoterapia%2C%20Pl%C3%ADnio%20Studio.jpg');
-            background-size: cover;
+            
+            /* background-size: cover; faz a imagem preencher toda a área, cortando se necessário */
+            background-size: cover; 
+            
+            /* background-position: center; centraliza a imagem no plano de fundo */
             background-position: center;
-            color: var(--bg);
+            
+            color: var(--bg); /* Cor do texto branco */
             padding: 8rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            /* Se a imagem não carregar, o fundo será transparente. */
         }
 
+        /* Removendo o overlay temporariamente para ver se a imagem aparece */
+        /* Se a imagem aparecer agora, o problema era o overlay muito escuro. */
         .hero::before {
+            /* Conteúdo vazio, sem cor de fundo, removendo o overlay */
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(45, 49, 66, 0.7); /* Overlay escuro para melhorar a leitura do texto */
+            /* background: rgba(45, 49, 66, 0.2); <-- Linha comentada */
             z-index: 1;
         }
 
         .hero .container {
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Garante que o texto fique acima do overlay (se ele estivesse lá) */
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            /* Ajustando a cor do texto para ser legível contra fundos claros e escuros, para depuração */
+            color: var(--primary); /* Temporariamente alterado para uma cor escura para ser visível se a imagem de fundo aparecer clara */
         }
 
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            color: var(--primary); /* Temporariamente alterado para uma cor escura */
         }
 
         /* Section */

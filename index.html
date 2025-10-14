@@ -3,232 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dopamina / Serotonina - A Ciência do Áudio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>NeuroHarmonia | Musicoterapia Científica</title>
+    <meta name="description" content="Musicoterapia baseada em frequências 8-12Hz para bem-estar e equilíbrio mental.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-graphite: #222222;
-            --purple: #6A1B9A; /* Um roxo vibrante */
-            --gold: #FFC107; /* Dourado */
-            --white: #FFFFFF;
-            --light-gray: #CCCCCC;
-            --text-shadow-color: rgba(0, 0, 0, 0.7);
+            --primary: #2D3142;
+            --secondary: #4F5D75;
+            --accent: #BFC0C0;
+            --highlight: #EF8354;
+            --bg: #FFFFFF;
+            --text: #2D3142;
+            --light: #F8F9FA;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--dark-graphite);
-            color: var(--white);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden; /* Evita scroll horizontal */
+            color: var(--text);
+            background: var(--bg);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Header / Banner */
-        .header-banner {
-            background-image: url('https://images.unsplash.com/photo-1511919884226-a28a27a0590a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Imagem de estúdio */
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        .header-banner::before {
-            content: '';
-            position: absolute;
+        /* Header */
+        header {
+            background: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Escurecimento */
-            z-index: 1;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-            color: var(--white);
-        }
-
-        .header-content h1 {
-            font-size: 3em;
-            margin: 0;
-            text-shadow: 2px 2px 4px var(--text-shadow-color);
-        }
-
-        .header-content p {
-            font-size: 1.5em;
-            margin-top: 10px;
-            text-shadow: 1px 1px 3px var(--text-shadow-color);
-        }
-
-        /* Slides / Carrossel */
-        .carousel-section {
-            background-color: #333333; /* Fundo levemente mais claro que o body */
-            padding: 50px 0;
-            text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-        }
-
-        .carousel-slide {
+        header .container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 450px; /* Altura fixa para os slides */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            color: var(--white);
-            margin: 0 auto;
-            width: 90%; /* Ajuste para o slide ficar dentro da seção */
-            border-radius: 8px;
-            overflow: hidden; /* Para garantir que o pseudo-elemento não vaze */
         }
 
-        .carousel-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Escurecimento */
-            z-index: 1;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg);
+            text-decoration: none;
         }
 
-        .slide-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 20px;
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        .slide-content h2 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px var(--text-shadow-color);
+        nav a {
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .slide-content p {
-            font-size: 1.3em;
-            margin-top: 0;
-            text-shadow: 1px 1px 3px var(--text-shadow-color);
-            color: var(--light-gray);
-        }
+        nav a:hover { color: var(--highlight); }
 
-        .slide-icon {
-            font-size: 5em;
-            color: var(--gold);
-            margin-bottom: 20px;
-            animation: pulse 2s infinite alternate, rotate 10s linear infinite; /* Animação */
-            text-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.1); opacity: 1; }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
-        }
-
-        /* Botões */
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
+            background: var(--highlight);
+            color: var(--bg);
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            margin: 10px;
-            border: none;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
         }
 
-        .btn-gold {
-            background-color: var(--gold);
-            color: var(--dark-graphite);
-            box-shadow: 0 0 15px rgba(255, 193, 7, 0.5); /* Brilho dourado */
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 131, 84, 0.3);
         }
 
-        .btn-gold:hover {
-            background-color: #e0a800;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.7);
-        }
-
-        .btn-purple {
-            background-color: var(--purple);
-            color: var(--white);
-            box-shadow: 0 0 15px rgba(106, 27, 154, 0.5); /* Brilho roxo */
-        }
-
-        .btn-purple:hover {
-            background-color: #5a1780;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(106, 27, 154, 0.7);
-        }
-
-        /* Botões de Ação Central */
-        .action-buttons {
+        /* Hero */
+        .hero {
+            background-image: url('https://raw.githubusercontent.com/iadesignerweb/musicoterapia/refs/heads/main/Musicoterapia%2C%20Pl%C3%ADnio%20Studio.jpg'); /* Novo banner */
+            background-size: cover;
+            background-position: center;
+            color: var(--bg);
+            padding: 8rem 0;
             text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-            background-color: #333333;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Seção YouTube */
-        .youtube-section {
-            background-color: #333333;
-            padding: 50px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .youtube-section h2 {
-            font-size: 2.5em;
-            color: var(--gold);
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px var(--text-shadow-color);
-        }
-
-        .video-wrapper {
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 49, 66, 0.7); /* Overlay escuro para melhorar a leitura do texto */
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Section */
+        section { padding: 5rem 0; }
+        section:nth-child(even) { background: var(--light); }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p { color: var(--secondary); }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content .youtube-container {
+            position: relative;
+            width: 100%;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
 
-        .video-wrapper iframe {
+        .about-content .youtube-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -237,204 +189,311 @@
             border: 0;
         }
 
-        /* Popup */
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* Testimonials */
+        .testimonial {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--highlight);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Contact Form */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        input, select, textarea {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s ease; /* Transição suave */
         }
 
-        .popup-content {
-            background-color: #444444;
-            padding: 30px;
-            border-radius: 10px;
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--highlight);
+            box-shadow: 0 0 0 3px rgba(239, 131, 84, 0.2); /* Sombra suave ao focar */
+        }
+
+        button.btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--bg);
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-            max-width: 450px;
-            width: 90%;
-            transform: scale(0.9);
-            opacity: 0;
-            transition: all 0.3s ease-out;
+            padding: 3rem 0;
         }
 
-        .popup-overlay.active .popup-content {
-            transform: scale(1);
-            opacity: 1;
+        footer a {
+            color: var(--highlight);
+            text-decoration: none;
         }
 
-        .popup-content h3 {
-            color: var(--gold);
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 2px var(--text-shadow-color);
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--bg);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Transição suave */
         }
 
-        .popup-content p {
-            color: var(--light-gray);
-            font-size: 1.1em;
-            margin-bottom: 25px;
+        .menu-toggle:hover {
+            transform: scale(1.1);
         }
 
-        .popup-buttons .btn {
-            margin: 0 10px;
-            padding: 12px 25px;
-            font-size: 1em;
-        }
-
-        /* Responsividade */
         @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 2.2em;
+            .menu-toggle { display: block; }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 1rem 0;
+                display: none;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                transition: all 0.3s ease-in-out; /* Transição suave */
             }
-            .header-content p {
-                font-size: 1.2em;
-            }
-            .carousel-slide {
-                height: 350px;
-            }
-            .slide-content h2 {
-                font-size: 2em;
-            }
-            .slide-content p {
-                font-size: 1.1em;
-            }
-            .slide-icon {
-                font-size: 4em;
-            }
-            .btn {
-                padding: 12px 20px;
-                font-size: 1em;
-                margin: 8px;
-            }
-            .youtube-section h2 {
-                font-size: 2em;
-            }
-            .popup-content {
-                max-width: 90%;
-                padding: 20px;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .header-banner {
-                height: 200px;
+            nav.active { 
+                display: block; 
+                transform: translateY(0);
+                opacity: 1;
             }
-            .header-content h1 {
-                font-size: 1.8em;
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
             }
-            .header-content p {
-                font-size: 1em;
+
+            nav ul li {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
-            .carousel-slide {
-                height: 300px;
-            }
-            .slide-content h2 {
-                font-size: 1.5em;
-            }
-            .slide-content p {
-                font-size: 1em;
-            }
-            .slide-icon {
-                font-size: 3em;
-            }
-            .btn {
-                padding: 10px 18px;
-                font-size: 0.9em;
-                margin: 5px;
-            }
-            .youtube-section h2 {
-                font-size: 1.8em;
-            }
-            .popup-buttons .btn {
-                display: block;
-                width: calc(100% - 20px);
-                margin: 10px auto;
-            }
+
+            .hero h1 { font-size: 2rem; }
+            h2 { font-size: 2rem; }
+            .about-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <header class="header-banner">
-        <div class="header-content">
-            <h1>DOPAMINA / SEROTONINA</h1>
-            <p>A Ciência do Áudio</p>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">NeuroHarmonia</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#ciencia">Ciência</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#contato" class="btn">Contato</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section class="carousel-section">
-            <div class="container">
-                <!-- Slide 1 -->
-                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1542496658-e3a79d0f37d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-                    <div class="slide-content">
-                        <i class="fas fa-brain slide-icon"></i>
-                        <h2>DOPAMINA / SEROTONINA</h2>
-                        <p>A Ciência do Áudio</p>
-                        <a href="https://www.youtube.com/@seucanal" target="_blank" class="btn btn-gold">ASSISTA NO YOUTUBE</a>
-                    </div>
+    <section class="hero">
+        <div class="container">
+            <h1>Musicoterapia Baseada em Ciência</h1>
+            <p>Frequências 8-12Hz para ativar dopamina e serotonina naturalmente</p>
+            <a href="#contato" class="btn">Comece Agora</a>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+            <h2>O Que É NeuroHarmonia?</h2>
+            <div class="about-content">
+                <div>
+                    <p>A NeuroHarmonia utiliza frequências sonoras específicas (ondas alfa de 8-12Hz) para promover bem-estar mental e emocional. Com 20 anos de experiência em produção de áudio, criamos composições que estimulam a produção natural de neurotransmissores essenciais.</p>
+                    <p style="margin-top: 1rem;">Nossa abordagem une conhecimento técnico em áudio com neurociência aplicada, oferecendo uma experiência terapêutica única e cientificamente fundamentada.</p>
+                    <p style="margin-top: 1rem;">Assista ao nosso vídeo para entender melhor como a musicoterapia funciona:</p>
                 </div>
-                <!-- Você pode adicionar mais slides aqui se desejar, seguindo a mesma estrutura -->
-            </div>
-        </section>
-
-        <section class="action-buttons">
-            <div class="container">
-                <a href="#" class="btn btn-purple">BAIXAR ARQUIVOS</a>
-                <a href="#" class="btn btn-gold">ENTRAR EM CONTATO</a>
-            </div>
-        </section>
-
-        <section class="youtube-section">
-            <div class="container">
-                <h2>COMO CRIAR BATIDAS ÉPICAS</h2>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PL_z8g8-eM3I_K00000000000000000000" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <!-- Substitua o src pelo link do seu playlist/vídeo do YouTube. Ex: https://www.youtube.com/embed/YOUR_VIDEO_ID -->
+                <div class="youtube-container">
+                    <!-- Substitua [LINK YOUTUBE] pelo embed do seu vídeo do YouTube -->
+                    <iframe src="https://www.youtube.com/embed/your-youtube-video-id" title="Apresentação Musicoterapia NeuroHarmonia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <a href="https://www.youtube.com/@seucanal" target="_blank" class="btn btn-gold">ASSITA NO YOUTUBE</a>
-            </div>
-        </section>
-    </main>
-
-    <div class="popup-overlay" id="myPopup">
-        <div class="popup-content">
-            <h3>Olá, Comandante!</h3>
-            <p>Notamos que você tem dúvidas. Clique no botão para ajuda para fehnse está janela para continuar Estamos aqui par te auliar!</p>
-            <div class="popup-buttons">
-                <button class="btn btn-purple" onclick="alert('Funcionalidade de Ajuda em Breve!');">OBTER AJUDA</button>
-                <button class="btn btn-gold" onclick="closePopup()">FECHAR</button>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="ciencia">
+        <div class="container">
+            <h2>A Ciência das Frequências</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Ondas Alfa (8-12Hz)</h3>
+                    <p>Frequências que induzem relaxamento profundo e clareza mental, promovendo um estado ideal para meditação e foco.</p>
+                </div>
+                <div class="card">
+                    <h3>Dopamina</h3>
+                    <p>Neurotransmissor associado ao prazer e motivação. A estimulação adequada melhora o humor e a sensação de recompensa.</p>
+                </div>
+                <div class="card">
+                    <h3>Serotonina</h3>
+                    <p>Regula humor, sono e bem-estar geral. Níveis equilibrados reduzem ansiedade e promovem calma interior.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios">
+        <div class="container">
+            <h2>Benefícios Comprovados</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Redução de Estresse</h3>
+                    <p>Diminuição dos níveis de cortisol e alívio da tensão através de frequências relaxantes.</p>
+                </div>
+                <div class="card">
+                    <h3>Melhora do Foco</h3>
+                    <p>Aumento da concentração e produtividade com estimulação cerebral adequada.</p>
+                </div>
+                <div class="card">
+                    <h3>Sono de Qualidade</h3>
+                    <p>Facilitação do sono profundo e reparador através de ondas cerebrais específicas.</p>
+                </div>
+                <div class="card">
+                    <h3>Equilíbrio Emocional</h3>
+                    <p>Regulação do humor e desenvolvimento de resiliência emocional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Depoimentos</h2>
+            <div class="content-grid">
+                <div class="testimonial">
+                    <p>"Minha ansiedade diminuiu drasticamente. Consigo dormir melhor e me sinto mais produtivo."</p>
+                    <div class="author">Carlos Silva - Empreendedor</div>
+                </div>
+                <div class="testimonial">
+                    <p>"As frequências me ajudaram a encontrar um foco que eu não tinha. Minhas sessões de estudo são muito mais eficazes."</p>
+                    <div class="author">Ana Paula - Estudante</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Me sinto mais leve, meu humor melhorou significativamente. Uma transformação real na qualidade de vida."</p>
+                    <div class="author">Ricardo Santos - Gerente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container">
+            <h2>Inicie Sua Transformação</h2>
+            <form id="form">
+                <label>Nome Completo*</label>
+                <input type="text" id="nome" required>
+                
+                <label>E-mail*</label>
+                <input type="email" id="email" required>
+                
+                <label>WhatsApp* (com DDD)</label>
+                <input type="tel" id="whatsapp" required>
+                
+                <label>Principal Interesse*</label>
+                <select id="interesse" required>
+                    <option value="">Selecione</option>
+                    <option>Reduzir Estresse/Ansiedade</option>
+                    <option>Melhorar Foco/Produtividade</option>
+                    <option>Sono Mais Reparador</option>
+                    <option>Elevar Humor/Bem-Estar</option>
+                    <option>Autoconhecimento</option>
+                </select>
+                
+                <label>Mensagem (opcional)</label>
+                <textarea id="mensagem" rows="4"></textarea>
+                
+                <button type="submit" class="btn">ENVIAR VIA WHATSAPP</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>NeuroHarmonia</strong> por Plinio Studio</p>
+            <p>Pernambuco, Brasil | <a href="https://wa.me/5587996029765">(87) 99602-9765</a></p>
+            <p style="margin-top: 1rem; opacity: 0.7;">© 2025 - Studio Musicoterapia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
     <script>
-        // Função para abrir o popup
-        function openPopup() {
-            document.getElementById('myPopup').classList.add('active');
-            document.getElementById('myPopup').style.display = 'flex';
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
         }
 
-        // Função para fechar o popup
-        function closePopup() {
-            document.getElementById('myPopup').classList.remove('active');
-            setTimeout(() => {
-                document.getElementById('myPopup').style.display = 'none';
-            }, 300); // Espera a transição de fade-out antes de esconder
-        }
+        document.getElementById('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const msg = encodeURIComponent(
+                `Olá, NeuroHarmonia!\n\n` +
+                `Nome: ${document.getElementById('nome').value}\n` +
+                `Email: ${document.getElementById('email').value}\n` +
+                `WhatsApp: ${document.getElementById('whatsapp').value}\n` +
+                `Interesse: ${document.getElementById('interesse').value}\n` +
+                `${document.getElementById('mensagem').value ? `Mensagem: ${document.getElementById('mensagem').value}\n` : ''}\n` +
+                `Gostaria de saber mais sobre a NeuroHarmonia.`
+            );
+            window.open(`https://wa.me/5587996029765?text=${msg}`, '_blank');
+            e.target.reset();
+        });
 
-        // Abrir o popup automaticamente após 3 segundos
-        window.onload = function() {
-            setTimeout(openPopup, 3000); // 3000 milissegundos = 3 segundos
-        };
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('nav').classList.remove('active');
+                }
+            });
+        });
     </script>
-
 </body>
 </html>
